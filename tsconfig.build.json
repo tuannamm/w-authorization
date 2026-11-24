@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./src"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "test", "dist", "**/*spec.ts"],
+  "references": [
+    {
+      "path": "../lib-infrastructure/libs/keycloak/tsconfig.lib.json"
+    },
+    {
+      "path": "../lib-infrastructure/libs/database/tsconfig.lib.json"
+    },
+    {
+      "path": "../lib-infrastructure/libs/core/tsconfig.lib.json"
+    }
+  ]
+}

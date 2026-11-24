@@ -1,0 +1,63 @@
+{
+  "name": "w-authorization",
+  "version": "0.0.1",
+  "description": "RBAC worker: roles, permission catalog, user-role assignments",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.{ts,mjs}\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:prod": "node dist/main",
+    "lint": "oxlint src/ test/",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watch",
+    "test:cov": "NODE_OPTIONS=--experimental-vm-modules jest --coverage --runInBand",
+    "test:mongo": "NODE_OPTIONS=--experimental-vm-modules jest --config test/jest-integration.config.cjs --selectProjects mongo --runInBand"
+  },
+  "dependencies": {
+    "@lib-infrastructure/core": "^0.0.1",
+    "@lib-infrastructure/database": "^0.0.1",
+    "@lib-infrastructure/keycloak": "^0.0.1",
+    "@nestjs/common": "^12.0.1",
+    "@nestjs/config": "^12.1.1",
+    "@nestjs/core": "^12.0.1",
+    "@nestjs/cqrs": "^12.1.2",
+    "@nestjs/microservices": "^12.4.0",
+    "@nestjs/mongoose": "^12.0.1",
+    "@nestjs/platform-express": "^12.0.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.15.1",
+    "mongoose": "^9.12.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^12.0.0",
+    "@nestjs/schematics": "^12.0.0",
+    "@nestjs/testing": "^12.0.1",
+    "@types/express": "^5.0.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.0",
+    "jest": "^30.0.0",
+    "oxlint": "^1.58.0",
+    "prettier": "^3.4.2",
+    "source-map-support": "^0.5.21",
+    "ts-jest": "^29.2.5",
+    "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^6.0.2"
+  },
+  "engines": {
+    "node": ">=24.9.0"
+  },
+  "nx": {
+    "targets": {
+      "test:mongo": { "dependsOn": ["build"], "cache": false },
+      "test:cov": { "dependsOn": ["^build"], "cache": false },
+      "test:watch": { "dependsOn": ["^build"], "cache": false }
+    }
+  }
+}
